@@ -14,6 +14,7 @@ numeroLikes: number;
 isGlutenFree: boolean;
 cocinero: string;
 ingredientes: string[];
+ingredientesNum: number;
 
   constructor() { 
     console.log('Recetacomponet constructor');
@@ -24,6 +25,7 @@ ingredientes: string[];
     this.isGlutenFree=false;
     this.cocinero="Carlos Argiñano";
     this.ingredientes=['Calamares','Limon','Pan','Salsa Ali-oli'];
+    this.ingredientesNum=this.ingredientes.length;
 
   }
   sumarLike(){
