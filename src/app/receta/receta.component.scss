@@ -28,15 +28,15 @@ span.cocinero{
         border-top: 1px solid grey;
         border-bottom: 1px solid grey;
         padding: 10px;
-        
+
+        &:hover{
+            background-color: greenyellow;
+            cursor: pointer;
+        }
         i{
             float: right;
+            margin-right: 10px;
         }
     }
-    .circulito{
-        border: 1px solid black;
-        border-radius: 50%;
-        padding: 1px;
-        background-color: greenyellow;
-    }
+    
 }

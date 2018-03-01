@@ -14,7 +14,10 @@ numeroLikes: number;
 isGlutenFree: boolean;
 cocinero: string;
 ingredientes: string[];
-ingredientesNum: number;
+
+show: boolean;
+posicion: string;
+
 
   constructor() { 
     console.log('Recetacomponet constructor');
@@ -25,7 +28,9 @@ ingredientesNum: number;
     this.isGlutenFree=false;
     this.cocinero="Carlos Argiñano";
     this.ingredientes=['Calamares','Limon','Pan','Salsa Ali-oli'];
-    this.ingredientesNum=this.ingredientes.length;
+
+    this.show=false;
+    this.posicion="down";
 
   }
   sumarLike(){
@@ -34,6 +39,19 @@ ingredientesNum: number;
 
   ngOnInit() {
     console.log('Recetacomponet ngOnInit');
+  }
+
+  showIngredientes(){
+    console.log('Click showIngredientes');
+    this.show=!this.show;
+   /*
+Lo de abajo de una linea es lo mismo que esto   
+   if (this.posicion=="down"){
+      this.posicion="up";
+    }else{
+      this.posicion="down";
+    }*/
+    this.posicion =(this.show)?'up':'down'
   }
 
 }
