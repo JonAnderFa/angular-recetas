@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Coche}from '../model/coche';
+import {Coche} from '../model/coche';
 import { CochesService } from '../providers/coches.service';
 
 @Component({
@@ -11,6 +11,8 @@ export class ConcesionarioComponent implements OnInit {
   stock: Array<Coche>; //Array casteado a Coche
   coche1: Coche;
   coche2: Coche;
+  //criterio del buscador
+  searchText:string;
 
   constructor(public cochesService:CochesService) {
     console.log('ConcesionarioComponent constructor');

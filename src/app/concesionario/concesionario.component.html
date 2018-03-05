@@ -15,7 +15,8 @@
           <h3 class="panel-title">Catalogo de coches</h3>
         </div>
         <div class="panel-body listado" >
-          <div *ngFor="let cocheIteracion of stock">
+          <input [(ngModel)]="searchText" placeholder="buscacoche">
+          <div *ngFor="let cocheIteracion of stock | filter:searchText">
             <app-coche [cocheParametro]="cocheIteracion"[coche1]="coche1"[coche2]="coche2"
             (cocheSeleccionado)="recibirCoche($event)"></app-coche>
           </div>

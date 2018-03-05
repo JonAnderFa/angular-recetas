@@ -1,0 +1,35 @@
+<div class="row">
+
+    <div class="col-md-2">
+        <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Catalogo de recetas</h3>
+                </div>
+                <div class="panel-body panel-list-Recetario">
+                   
+                    <!-- llamda componente Hijo -->
+                    <app-listado-recetario [stockParametro]="stock"
+                                 (eventoEmitir)="recibirReceta($event)"></app-listado-recetario>
+                  
+                </div>
+        </div>
+    </div>   
+
+    <div class="col-md-10">
+            <input [(ngModel)]="searchText" placeholder="Buscar Receta">
+            
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Detalle de la receta</h3>
+            </div>
+            <div class="panel-body">
+                
+                <!-- llamda componente Hijo 
+                <app-coche [r1]="receta1" ></app-coche>
+                -->
+            </div>
+        </div>
+    </div>    
+
+</div>
