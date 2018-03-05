@@ -1,11 +1,13 @@
 <p>
   Ejemplo de un componente Padre <b>"Cocesionario"</b> e Hijo <b>"Coche"</b>. Aprender a pasar parametros de una a otro @inport @output
 </p>
+ <!--
 <nav aria-label="Page navigation">
-  <ul class="pagination">
-    <li *ngFor="let coche of stock" [class.active]="coche==coche1"><a>{{coche.marca}} {{coche.modelo}}</a></li>
+ <ul class="pagination">
+    <li *ngFor="let coche of stock" [class.active]="coche==coche1||coche==coche2"><a>{{coche.marca}} {{coche.modelo}}</a></li>
   </ul>
 </nav>
+-->
 <div class="row">
   <div class="col-xs-3 ">
     <div class="panel panel-primary">
@@ -14,7 +16,7 @@
         </div>
         <div class="panel-body listado" >
           <div *ngFor="let cocheIteracion of stock">
-            <app-coche [cocheParametro]="cocheIteracion"
+            <app-coche [cocheParametro]="cocheIteracion"[coche1]="coche1"[coche2]="coche2"
             (cocheSeleccionado)="recibirCoche($event)"></app-coche>
           </div>
         </div>
@@ -33,9 +35,9 @@
                     <div class="caption">
                       <h3>{{coche1.marca}}</h3>
                       <p>{{coche1.modelo}} {{coche1.version}}</p>
-                      <p>Km: {{coche1.kilometraje}}</p>
-                      <p>Puertas :{{coche1.puertas}}</p>
-                      <p>Combustible :{{coche1.combustible}}</p>
+                      <p>Consumo a los 100km: {{coche1.consumo}}  <span [class]="(coche1.consumo-coche2.consumo>0)?'badge positivo':'badge negativo'">{{coche1.consumo-coche2.consumo | round}}</span></p>
+                      <p>Puertas :{{coche1.puertas}}  <span [class]="(coche1.puertas-coche2.puertas>0)?'badge positivo':'badge negativo'">{{coche1.puertas-coche2.puertas}}</span></p>
+                      <p>Potencia :{{coche1.caballos}}<span [class]="(coche1.caballos-coche2.caballos>0)?'badge positivo':'badge negativo'">{{coche1.caballos-coche2.caballos}}</span> </p>
                     </div>
                 </div>
               </div>
@@ -46,9 +48,9 @@
                       <div class="caption">
                         <h3>{{coche2.marca}}</h3>
                         <p>{{coche2.modelo}} {{coche2.version}}</p>
-                        <p>Km: {{coche2.kilometraje}}</p>
-                        <p>Puertas :{{coche2.puertas}}</p>
-                        <p>Combustible :{{coche2.combustible}}</p>
+                        <p>Consumo a los 100km: {{coche2.consumo}}  <span [class]="(coche2.consumo-coche1.consumo>0)?'badge positivo':'badge negativo'">{{coche2.consumo-coche1.consumo|round}}</span></p>
+                        <p>Puertas :{{coche2.puertas}}  <span [class]="(coche2.puertas-coche1.puertas>0)?'badge positivo':'badge negativo'">{{coche2.puertas-coche1.puertas}}</span></p>
+                        <p>Potencia :{{coche2.caballos}} <span [class]="(coche2.caballos-coche1.caballos>0)?'badge positivo':'badge negativo'">{{coche2.caballos-coche1.caballos}}</span> </p>
                       </div>
                   </div>
                 </div>

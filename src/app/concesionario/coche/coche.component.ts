@@ -9,7 +9,8 @@ import { Coche } from '../../model/coche';
 export class CocheComponent implements OnInit {
 
   @Input ('cocheParametro') coche: Coche;
-
+  @Input ('coche1')coche1:Coche;
+  @Input ('coche2')coche2:Coche;
   //los paramtros de salida se realuzan a traves de Eventos
   @Output() cocheSeleccionado =new EventEmitter;
   constructor() { }

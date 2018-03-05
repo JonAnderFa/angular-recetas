@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 
 //Nuestro Modulo para Routing
 import { AppRouter} from './app.route';
-
+//Componentes
 import { AppComponent } from './app.component';
 import { RecetaComponent } from './receta/receta.component';
 import { PropiedadesComponent } from './propiedades/propiedades.component';
@@ -13,6 +13,10 @@ import { HomeComponent } from './home/home.component';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { ConcesionarioComponent } from './concesionario/concesionario.component';
 import { CocheComponent } from './concesionario/coche/coche.component';
+//Service
+import { CochesService } from './providers/coches.service';
+import { RoundPipe } from './Pipes/round.pipe';
+
 
 
 @NgModule({
@@ -24,13 +28,16 @@ import { CocheComponent } from './concesionario/coche/coche.component';
     HomeComponent,
     UsuarioComponent,
     ConcesionarioComponent,
-    CocheComponent
+    CocheComponent,
+    RoundPipe
   ],
   imports: [
     BrowserModule,
     AppRouter
   ],
-  providers: [],
+  providers: [
+    CochesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
