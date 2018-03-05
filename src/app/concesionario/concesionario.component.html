@@ -1,0 +1,60 @@
+<p>
+  Ejemplo de un componente Padre <b>"Cocesionario"</b> e Hijo <b>"Coche"</b>. Aprender a pasar parametros de una a otro @inport @output
+</p>
+<nav aria-label="Page navigation">
+  <ul class="pagination">
+    <li *ngFor="let coche of stock" [class.active]="coche==coche1"><a>{{coche.marca}} {{coche.modelo}}</a></li>
+  </ul>
+</nav>
+<div class="row">
+  <div class="col-xs-3 ">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Catalogo de coches</h3>
+        </div>
+        <div class="panel-body listado" >
+          <div *ngFor="let cocheIteracion of stock">
+            <app-coche [cocheParametro]="cocheIteracion"
+            (cocheSeleccionado)="recibirCoche($event)"></app-coche>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="col-xs-8">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Comparador de coches</h3>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-xs-6" *ngIf="coche1.foto!=''">
+                <div class="thumbnail">
+                    <img src="{{coche1.foto}}" alt="foto {{coche1.marca}} {{coche1.modelo}} ">
+                    <div class="caption">
+                      <h3>{{coche1.marca}}</h3>
+                      <p>{{coche1.modelo}} {{coche1.version}}</p>
+                      <p>Km: {{coche1.kilometraje}}</p>
+                      <p>Puertas :{{coche1.puertas}}</p>
+                      <p>Combustible :{{coche1.combustible}}</p>
+                    </div>
+                </div>
+              </div>
+
+              <div class="col-xs-6" *ngIf="coche2.foto!=''">
+                  <div class="thumbnail">
+                      <img src="{{coche2.foto}}" alt="foto {{coche2.marca}} {{coche2.modelo}} ">
+                      <div class="caption">
+                        <h3>{{coche2.marca}}</h3>
+                        <p>{{coche2.modelo}} {{coche2.version}}</p>
+                        <p>Km: {{coche2.kilometraje}}</p>
+                        <p>Puertas :{{coche2.puertas}}</p>
+                        <p>Combustible :{{coche2.combustible}}</p>
+                      </div>
+                  </div>
+                </div>
+              
+              </div>
+        </div>
+      </div>
+  </div>
+</div>

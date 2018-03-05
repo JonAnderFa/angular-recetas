@@ -6,7 +6,6 @@ export class Usuario{
     avatar: string;
     sexo: Lista;
 
-
     constructor(
     nombre:string,
     apellido:string='',
@@ -20,22 +19,10 @@ export class Usuario{
         this.email=email;
         this.avatar=avatar;
         this.sexo=sexo;
-
-
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
-enum Lista {Masculino="Masculino",Femenino="Femenino",Indeterminado="Ideterminado"}
+export enum Lista {
+    Masculino="Masculino",
+    Femenino="Femenino",
+    Indeterminado="Ideterminado"
+}
