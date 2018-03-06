@@ -1,5 +1,0 @@
-<ul class="list-group">
-    <li class="list-group-item" *ngFor="let receta of stock | filter : searchText">
-        <a [class.active]="receta1==r1" (click)="seleccionar($event, receta)">{{receta.nombre}</a>
-    </li>    
-  </ul>

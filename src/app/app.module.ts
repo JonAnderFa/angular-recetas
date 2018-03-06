@@ -20,7 +20,6 @@ import { FormsModule } from '@angular/forms';
 import { RoundPipe } from './pipes/round.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
 import { RecetarioComponent } from './recetario/recetario.component';
-import { ListadoRecetarioComponent } from './recetario/listado-recetario/listado-recetario.component';
 import { DetalleRecetarioComponent } from './recetario/detalle-recetario/detalle-recetario.component';
 
 
@@ -38,7 +37,6 @@ import { DetalleRecetarioComponent } from './recetario/detalle-recetario/detalle
     RoundPipe,
     FilterPipe,
     RecetarioComponent,
-    ListadoRecetarioComponent,
     DetalleRecetarioComponent
   ],
   imports: [
