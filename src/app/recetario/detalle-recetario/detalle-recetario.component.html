@@ -7,7 +7,8 @@
     </div>
     <div class="col-xs-6" *ngIf="r1.nombre!=''">
         <section class="ingredientes">
-            <h4><span class="badge">{{r1.ingredientes.length}}</span> Ingredientes</h4>
+            <h4><span class="badge">{{r1.ingredientes.length}}</span> Ingredientes<i class="fa fa-cart-plus" aria-hidden="true"></i>
+            </h4>
             <ol>
               <li *ngFor="let ing of r1.ingredientes">
                 {{ing}}
@@ -18,9 +19,9 @@
   </div>
   
   <div class="caption"*ngIf="r1.nombre!=''">
-<h3>{{ r1.nombre| uppercase }}      
-  <span class="cocinero">{{r1.cocinero}}</span>
-  <span class="label label-primary">Likes {{r1.numeroLikes}}</span> 
+<h3>{{ r1.nombre| uppercase }} //     
+  <span class="cocinero">{{r1.cocinero}} <span class="glyphicon glyphicon-user"></span></span>
+  <span class="label label-primary">Likes {{r1.numeroLikes}} <span class=" glyphicon glyphicon-thumbs-up"></span></span> 
   </h3>
   
     <p>{{r1.descripcion | slice:0:100}}...</p>

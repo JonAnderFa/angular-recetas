@@ -21,6 +21,8 @@ import { RoundPipe } from './pipes/round.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
 import { RecetarioComponent } from './recetario/recetario.component';
 import { DetalleRecetarioComponent } from './recetario/detalle-recetario/detalle-recetario.component';
+import { FilterReceta } from './pipes/filter.receta';
+import { RecetasService } from './providers/recetas.service';
 
 
 
@@ -36,6 +38,7 @@ import { DetalleRecetarioComponent } from './recetario/detalle-recetario/detalle
     CocheComponent,
     RoundPipe,
     FilterPipe,
+    FilterReceta,
     RecetarioComponent,
     DetalleRecetarioComponent
   ],
@@ -45,7 +48,8 @@ import { DetalleRecetarioComponent } from './recetario/detalle-recetario/detalle
     FormsModule
   ],
   providers: [
-    CochesService
+    CochesService,
+    RecetasService
   ],
   bootstrap: [AppComponent]
 })

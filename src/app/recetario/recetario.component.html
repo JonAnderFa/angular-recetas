@@ -1,32 +1,42 @@
 <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-10">
-                <input [(ngModel)]="searchText" placeholder="Buscar Receta"> <i class="fa fa-search" aria-hidden="true"></i>
+        <div class="col-md-3">
+                <p><span class="glutenInicio"><img *ngIf="!isgluten"src='\assets\img\gluten_free_icon.png' alt="No libre de Gluten"/></span>
+                <span class="glutenInicio"><img *ngIf="isgluten"src='\assets\img\gluten_icon.png' alt="Libre de Gluten"/></span>
+                Elimnar recetas con gluten <input [(ngModel)]="searchCheck"  type="checkbox" name="singluten" id="singluten"></p>
+           
+        </div>
+        <div class="col-md-9">
+                <input [(ngModel)]="searchText" placeholder="Buscar Receta por Nombre, Cocinero o Ingredientes =D"> <i class="fa fa-search" aria-hidden="true"></i>
 
                 </div>
 
 </div>
 <div class="row">
-    <div class="col-md-2">
+    <div class="col-md-3 listado">
         <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Catalogo de recetas</h3>
+                    <h3 class="panel-title">Catalogo de recetas <span class="glyphicon glyphicon-globe"></span></h3>
                 </div>
                 <div class="panel-body panel-list-Recetario">
                    
                     <ul class="list-group">
-                        <li class="list-group-item" *ngFor="let receta of stock | filter : searchText" [class.active]="receta==r1">
-                            <a  (click)="seleccionar($event, receta)">{{receta.nombre}}</a>
+                        <li class="list-group-item" *ngFor="let receta of stock | filter : searchText | filter :searchCheck" [class.active]="receta1==receta"(click)="seleccionar($event, receta)">
+                            
+                            <span id="gluten"><img *ngIf="receta.isGlutenFree"src='\assets\img\gluten_free_icon.png' alt="No libre de Gluten"/></span>
+                            <span id="gluten"><img *ngIf="!receta.isGlutenFree"src='\assets\img\gluten_icon.png' alt="Libre de Gluten"/></span>
+                            <p class="pgluten"><i class="fa fa-book" aria-hidden="true"></i> {{receta.nombre}}</p>
+                            <p class="pgluten"><i class="fa fa-address-book-o" aria-hidden="true"></i>
+                                {{receta.cocinero}}</p>
                         </li>    
                       </ul>
                 </div>
         </div>
     </div>   
 
-    <div class="col-md-10">
+    <div class="col-md-9">
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <h3 class="panel-title">Detalle de la receta</h3>
+                <h3 class="panel-title">Detalle de la receta <span class="glyphicon glyphicon-grain"></span></h3>
             </div>
             <div class="panel-body">
                 

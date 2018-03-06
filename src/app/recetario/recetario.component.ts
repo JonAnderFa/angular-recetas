@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Receta } from '../model/receta';
+import { RecetasService } from '../providers/recetas.service';
 //import { RecetaService } from '../providers/receta.service';
 
 @Component({
@@ -10,13 +11,18 @@ import { Receta } from '../model/receta';
 export class RecetarioComponent implements OnInit {
   stock : Array<Receta>;  //Array casteado a Receta
   receta1 : Receta;
-
+  gluten: boolean;
   //Datos de la receta, componente show para ver, parametro posicion
   receta: Receta;
  //inicializar los atributos
- constructor( /*public recetaService:RecetaService*/ ) {
+ constructor( public recetaService:RecetasService ) {
+  this.stock=recetaService.getAll();
+  this.receta1 = this.stock[0];
+  this.gluten=false;
 
   console.log('RecetarioComponent constructor');     
+
+  /* 
   this.receta = new Receta('Marmitaco');
 
     this.receta.addIngrediente('Patatas');
@@ -30,12 +36,12 @@ export class RecetarioComponent implements OnInit {
     this.stock = new Array<Receta>();
     this.stock.push(this.receta);
 
-  /* estos datos nos los provee el Service
-    this.stock.push( new Coche('Seat','Panda',3,'https://www.minicar.es/large/Fiat-Panda-%281980%29-RBA-Entrega-29-1%3A43-i33233.jpg') );
-    this.stock.push( new Coche('Toyota','Verso',4,'https://www.supremeautomotivegroup.com/assets/stock/expanded/white/640/2017tos110001_640/2017tos110001_640_07.jpg') );
-    this.stock.push( new Coche('Opel','Corsa',5) );
+
   */
 
+}
+isgluten(){
+  return this.gluten;
 }
   //llamadas a los Services
   ngOnInit() {
