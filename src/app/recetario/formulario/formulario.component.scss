@@ -1,0 +1,33 @@
+.btn{
+    padding: 1em;
+    width: 98%;
+    max-width: 98%;
+    margin: 5px;
+}
+.form-group {
+    padding: 1em;
+    label{
+        width: 100%;
+        
+    }
+    .estilotextarea{
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+        min-height: 15%;
+    }
+}
+.form-inline {
+    label{
+        width: 15%;
+        
+    }
+    input{
+        float: right;
+        width: 60%;
+    }
+}
+img{
+    width: 100%;
+    margin-bottom: 2%;
+}

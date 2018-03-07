@@ -4,6 +4,7 @@
         <img src="{{r1.foto}}" alt="...">
         <span id="gluten"><img *ngIf="r1.isGlutenFree"src='\assets\img\gluten_free_icon.png' alt="No libre de Gluten"/></span>
         <span id="gluten"><img *ngIf="!r1.isGlutenFree"src='\assets\img\gluten_icon.png' alt="Libre de Gluten"/></span>
+        <i><span class="cocinero">{{r1.cocinero}} </span></i> 
     </div>
     <div class="col-xs-6" *ngIf="r1.nombre!=''">
         <section class="ingredientes">
@@ -19,8 +20,7 @@
   </div>
   
   <div class="caption"*ngIf="r1.nombre!=''">
-<h3>{{ r1.nombre| uppercase }} //     
-  <span class="cocinero">{{r1.cocinero}} <span class="glyphicon glyphicon-user"></span></span>
+<h3>{{ r1.nombre| uppercase }}  
   <span class="label label-primary">Likes {{r1.numeroLikes}} <span class=" glyphicon glyphicon-thumbs-up"></span></span> 
   </h3>
   

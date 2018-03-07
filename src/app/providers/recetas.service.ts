@@ -6,16 +6,18 @@ import { MOCKS_RECETAS } from './mocks.recetas';
 @Injectable()
 export class RecetasService {
 
+recetas:Receta[];
+
   constructor() { 
     console.log('RecetasService constructor');
   }
-
+  
   /** 
    * Retorna todos los Recetas que tenemos en Stock
   */
   getAll():Receta[]{
     console.log('RecetaService getAll');
-    let recetas:Receta[] = [];
+    this.recetas = [];
     let receta;
     
     let jsonData = JSON.parse(MOCKS_RECETAS.stock);
@@ -35,12 +37,18 @@ export class RecetasService {
   
                           );
 
-        recetas.push(receta);
+        this.recetas.push(receta);
 
     });
 
-    return recetas;
-  }
-
+    return this.recetas;
+  } 
+/**
+ * Crear Nueva Receta
+ * @param receta Receta nueva
+ */
+  crear(receta:Receta):void{
+    this.recetas.unshift(receta);
+}
 
 }

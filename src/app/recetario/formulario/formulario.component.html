@@ -1,0 +1,58 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalReceta">
+    Crear Receta 
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="modalReceta" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" id="btn-close" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Nueva Receta</h4>
+        </div>
+        <div class="modal-body">
+          <p>Valores:{{formulario.value|json}}</p>
+          <p>Estado:{{formulario.status|json}}</p>
+          <form [formGroup]="formulario"(ngSubmit)="sumitar($event)"novalidate >
+            <div class="row">
+              <div class="col-md-6">
+                  <div class="form-group form-inline">
+                      <label for="nombre">Nombre: </label>
+                      <input formControlName="nombre" placeholder="Inserte  receta"name="nombre">
+                      <p *ngIf="formulario.controls.nombre.invalid && formulario.controls.nombre.touched" class="text-danger">*Obligatorio, minimo 2 letras</p>
+                    </div>
+                    <div class="form-group form-inline">
+                        <label for="cocinero">Cocinero: </label>
+                        <input formControlName="cocinero" placeholder="Inserte cocinero"name="cocinero">
+                    </div>
+                    <div class="form-group form-inline">
+                        <label for="gluten">Gluten: </label>
+                        <br>
+                        <input type="radio" formControlName="gluten"name="gluten" value="false" [checked]="true"> Si<br>
+                        <input type="radio" formControlName="gluten"name="gluten" value="true"> No<br>
+                    </div>
+
+              </div>
+              <div class="col-md-6">
+                <img [src]='(formulario.controls.foto.value=="")?"/assets/img/receta.jpg":formulario.controls.foto.value'>
+                <div class="form-group form-inline">
+                  <label for="foto">Foto: </label>
+                  <input formControlName="foto" placeholder="Inserte foto"name="foto">
+                </div>
+                  
+                
+              </div>
+              <div class="form-group ">
+                  <label for="descripcion">Descripcion: </label>
+                  <textarea class="estilotextarea"formControlName="descripcion" placeholder="Explique como se hace su receta"name="descripcion"></textarea>
+              </div>
+              <input  type="submit" [disabled]="!formulario.valid" class="btn btn-success"name="Crear" value="Crear">
+                 
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>

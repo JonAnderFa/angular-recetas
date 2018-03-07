@@ -11,14 +11,14 @@ import { RecetasService } from '../providers/recetas.service';
 export class RecetarioComponent implements OnInit {
   stock : Array<Receta>;  //Array casteado a Receta
   receta1 : Receta;
-  gluten: boolean;
+  glutenfilter: boolean;
   //Datos de la receta, componente show para ver, parametro posicion
   receta: Receta;
  //inicializar los atributos
  constructor( public recetaService:RecetasService ) {
   this.stock=recetaService.getAll();
   this.receta1 = this.stock[0];
-  this.gluten=false;
+  this.glutenfilter=false;
 
   console.log('RecetarioComponent constructor');     
 
@@ -40,9 +40,7 @@ export class RecetarioComponent implements OnInit {
   */
 
 }
-isgluten(){
-  return this.gluten;
-}
+
   //llamadas a los Services
   ngOnInit() {
     console.log('RecetarioComponent ngOnInit');    
@@ -54,6 +52,8 @@ isgluten(){
     this.receta1=receta;
                    
 }
-
+changeGlutenFilter(){
+  this.glutenfilter=!this.glutenfilter;
+}
 
 }
