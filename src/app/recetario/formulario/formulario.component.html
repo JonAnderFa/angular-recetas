@@ -17,35 +17,44 @@
           <form [formGroup]="formulario"(ngSubmit)="sumitar($event)"novalidate >
             <div class="row">
               <div class="col-md-6">
-                  <div class="form-group form-inline">
-                      <label for="nombre">Nombre: </label>
-                      <input formControlName="nombre" placeholder="Inserte  receta"name="nombre">
+                  <div class="form-group form-inline"[ngClass]="estilosInput(formulario.controls.nombre)">
+                      <label class="control-label" for="nombre">Nombre: </label>
+                      <input formControlName="nombre" class="form-control" placeholder="Inserte receta"name="nombre">
                       <p *ngIf="formulario.controls.nombre.invalid && formulario.controls.nombre.touched" class="text-danger">*Obligatorio, minimo 2 letras</p>
                     </div>
-                    <div class="form-group form-inline">
-                        <label for="cocinero">Cocinero: </label>
-                        <input formControlName="cocinero" placeholder="Inserte cocinero"name="cocinero">
+                    <div class="form-group form-inline"[ngClass]="estilosInput(formulario.controls.cocinero)">
+                        <label for="cocinero" class="control-label">Cocinero: </label>
+                        <input formControlName="cocinero" class="form-control" placeholder="Inserte cocinero"name="cocinero">
                     </div>
                     <div class="form-group form-inline">
                         <label for="gluten">Gluten: </label>
                         <br>
-                        <input type="radio" formControlName="gluten"name="gluten" value="false" [checked]="true"> Si<br>
+                        <input type="radio" formControlName="gluten"name="gluten" value="false" > Si<br>
                         <input type="radio" formControlName="gluten"name="gluten" value="true"> No<br>
                     </div>
 
               </div>
               <div class="col-md-6">
-                <img [src]='(formulario.controls.foto.value=="")?"/assets/img/receta.jpg":formulario.controls.foto.value'>
+                <img [src]='(formulario.controls.foto.value=="")?"/assets/img/receta.jpg":formulario.controls.foto.value'alt='Imagen de la receta'>
                 <div class="form-group form-inline">
                   <label for="foto">Foto: </label>
                   <input formControlName="foto" placeholder="Inserte foto"name="foto">
                 </div>
-                  
-                
               </div>
-              <div class="form-group ">
-                  <label for="descripcion">Descripcion: </label>
-                  <textarea class="estilotextarea"formControlName="descripcion" placeholder="Explique como se hace su receta"name="descripcion"></textarea>
+              <div class="col-md-12">
+                  <label for="">Ingredientes </label>
+                  <a (click)="clickOtroIngrediente()">Añadir Ingrediente</a>
+                  <div formArrayName="ingredientes"
+                      *ngFor="let ingrediente of formulario.get('ingredientes').controls; let i = index;">                    
+                      <div [formGroupName]="i">
+                          <input formControlName="nombre" placeholder="Nuevo Ingrediente" class="ingrediente-input">                        
+                          <span class="glyphicon glyphicon-remove-circle" (click)="clickEliminarIngrediente(i)"></span>
+                      </div>                   
+                  </div>
+              </div>
+              <div class="form-group "[ngClass]="estilosInput(formulario.controls.descripcion)">
+                  <label for="descripcion"class="control-label">Descripcion: </label>
+                  <textarea class="estilotextarea form-control"formControlName="descripcion" placeholder="Explique como se hace su receta"name="descripcion"></textarea>
               </div>
               <input  type="submit" [disabled]="!formulario.valid" class="btn btn-success"name="Crear" value="Crear">
                  

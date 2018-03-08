@@ -5,9 +5,10 @@ import { element } from 'protractor';
 
 @Injectable()
 export class CochesService {
-
+   coches:Coche[]
   constructor() { 
     console.log('CochesService constructor');
+     this.coches = [];
   }
 
   /** 
@@ -15,7 +16,6 @@ export class CochesService {
   */
   getAll():Coche[]{
     console.log('CochesService getAll');
-    let coches:Coche[] = [];
     let coche;
     
     let jsonData = JSON.parse(MOCKS_COCHES.stock);
@@ -35,12 +35,20 @@ export class CochesService {
   
                           );
 
-        coches.push(coche);
+      this.coches.push(coche);
 
     });
 
-    return coches;
+    return this.coches;
   }
+ 
+/**
+* Crear Nueva Coche
+* @param receta coche nueva
+*/
+crear(coche:Coche):void{
+this.coches.unshift(coche);
+}
 
 
 }

@@ -24,6 +24,7 @@ import { DetalleRecetarioComponent } from './recetario/detalle-recetario/detalle
 import { FilterReceta } from './pipes/filter.receta';
 import { RecetasService } from './providers/recetas.service';
 import { FormularioComponent } from './recetario/formulario/formulario.component';
+import { FormularioCocheComponent } from './concesionario/formulario-coche/formulario-coche.component';
 
 
 
@@ -42,7 +43,8 @@ import { FormularioComponent } from './recetario/formulario/formulario.component
     FilterReceta,
     RecetarioComponent,
     DetalleRecetarioComponent,
-    FormularioComponent
+    FormularioComponent,
+    FormularioCocheComponent
   ],
   imports: [
     BrowserModule,
