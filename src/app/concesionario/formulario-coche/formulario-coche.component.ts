@@ -36,7 +36,7 @@ export class FormularioCocheComponent implements OnInit {
         //FormControl = (input) =>['value', [validaciones]]
         marca:['',[Validators.required, Validators.minLength(2)]],
         modelo:['',[Validators.required, Validators.minLength(2)]],
-        foto:[''],
+        foto:['/assets/img/coche_default.png'],
         version:[''],
         puertas:['3'],
         caballos:['100'],
@@ -50,7 +50,10 @@ export class FormularioCocheComponent implements OnInit {
       let coche=this.mapearFormularioCoche(this.formulario);
       this.cochesService.crear(coche);
       this.formulario.reset({
-        foto: "/assets/img/coche.jpg"
+        foto: "/assets/img/coche_default.png",
+        puertas:'3',
+        caballos:'100',
+        consumo:'7.2'
       });
       //Cerrar modal
       

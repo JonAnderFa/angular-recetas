@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
-
+// Importar HttpClientModule
+import {HttpClientModule} from '@angular/common/http';
 
 //Nuestro Modulo para Routing
 import { AppRouter} from './app.route';
@@ -16,15 +17,18 @@ import { ConcesionarioComponent } from './concesionario/concesionario.component'
 import { CocheComponent } from './concesionario/coche/coche.component';
 //Service
 import { CochesService } from './providers/coches.service';
+import { RecetasService } from './providers/recetas.service';
+import {TodosService}from'./providers/todos.service';
 //Pipe
 import { RoundPipe } from './pipes/round.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
 import { RecetarioComponent } from './recetario/recetario.component';
 import { DetalleRecetarioComponent } from './recetario/detalle-recetario/detalle-recetario.component';
 import { FilterReceta } from './pipes/filter.receta';
-import { RecetasService } from './providers/recetas.service';
 import { FormularioComponent } from './recetario/formulario/formulario.component';
 import { FormularioCocheComponent } from './concesionario/formulario-coche/formulario-coche.component';
+import { PlantillaComponent } from './plantilla/plantilla.component';
+import { TodosComponent } from './todos/todos.component';
 
 
 
@@ -44,17 +48,23 @@ import { FormularioCocheComponent } from './concesionario/formulario-coche/formu
     RecetarioComponent,
     DetalleRecetarioComponent,
     FormularioComponent,
-    FormularioCocheComponent
+    FormularioCocheComponent,
+    PlantillaComponent,
+    TodosComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRouter,
     FormsModule,
     ReactiveFormsModule
+    
   ],
   providers: [
+    HttpClientModule,
     CochesService,
-    RecetasService
+    RecetasService,
+    TodosService
   ],
   bootstrap: [AppComponent]
 })

@@ -10,6 +10,8 @@ import {Page404Component} from './page404/page404.component';
 import {HomeComponent} from './home/home.component';
 import {UsuarioComponent} from './usuario/usuario.component';
 import {ConcesionarioComponent} from './concesionario/concesionario.component';
+import {PlantillaComponent} from './plantilla/plantilla.component';
+import {TodosComponent} from './todos/todos.component';
 
 const appRoutes: Routes = [
     { path: '',   component: HomeComponent },
@@ -19,6 +21,8 @@ const appRoutes: Routes = [
     { path: 'usuarios',   component: UsuarioComponent},
     { path: 'concesionarios',   component: ConcesionarioComponent},
     { path: 'recetario', component: RecetarioComponent},
+    { path: 'plantilla', component:PlantillaComponent},
+    { path: 'todos', component:TodosComponent},
     { path: '**',   component: Page404Component}
     
 
