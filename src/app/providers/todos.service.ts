@@ -47,6 +47,22 @@ post(todo:Todo){
 
     return this.http.post( url, body , httpOptions );
   }
+  patch(todo:Todo){
+    let url = END_POINT + '/todos/'+todo.id;
+    console.log(`TodosService put ${url}`);
+
+    let body = {
+                  "completed": !todo.completed    
+                } 
+              
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+
+    return this.http.patch( url, body , httpOptions );
+  }
 
 
 }

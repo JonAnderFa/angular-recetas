@@ -57,12 +57,16 @@ export class TodosComponent implements OnInit {
 
   change(todo:Todo){
     console.log('TodosComponent change %o', todo );
-    this.todos.forEach( (t, index) =>{
-      if ( t.id === todo.id ){
-        this.todos[index].completed = !todo.completed;
-        return false; //break        
+    this.todosService.patch(todo).subscribe(
+      result=>{
+        console.log('TodosComponent modificado %o', result);
+        this.cargarTareas();
+      },
+      error=>{
+        alert('No se pudo modificar Tarea');
+        console.error(error);
       }
-    });
+    );
   }
 
   delete(todo:Todo){
