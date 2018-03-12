@@ -1,19 +1,17 @@
 <div id="todos">
+
     <section>
-        <h2>Lista tareas  <i class="fa fa-plus" aria-hidden="true"></i></h2>
-        <ul>
-            <li *ngFor="let todo of todos" >
-                    
-                    <input type="checkbox"  [checked]="todo.completed"(click)="cambiarcomple(todo.completed)">
-                    <span [class.tachado]="todo.completed">{{todo.id}}: {{todo.title}}</span>
-                    <br>
-                     <i (click)="eliminar(todo.id)"class="fa fa-trash" aria-hidden="true"></i> 
-                     <i class="fa fa-pencil" aria-hidden="true"></i>
-
-            </li>
-
-        </ul>
-       
-
-    </section>
-</div>
+      <h2>Lista Tareas</h2>
+      <input type="text" [(ngModel)]="nuevaTarea" placeholder="Nueva Tarea">
+      <span (click)="new()" class="glyphicon glyphicon-plus"></span>  
+      <hr>
+      <ul>
+        <li *ngFor="let todo of todos">
+            <input type="checkbox" [checked]="todo.completed"(click)="change(todo)">
+                <span  [class]="(todo.completed)?'terminada':''" >{{todo.id}} {{todo.title}}</span>
+                <span (click)="delete(todo)" class="glyphicon glyphicon-trash"></span>                        
+        </li>      
+      </ul>
+    </section>  
+  
+  </div>

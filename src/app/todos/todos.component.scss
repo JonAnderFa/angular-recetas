@@ -4,37 +4,45 @@
        background-image: url("/assets/img/img_parallax.jpg");
       
 
-   
-       /* Center and scale the image nicely */
-       background-position: center;
-       background-repeat: no-repeat;
-       background-size: cover;
+    /* Full height */
+    height: 100%; 
 
-       min-height: 70vh;
-       display: flex;
-}
-section{
-    padding: 20px;
-    background: rgba(255,255,255,0.7);
-    margin: auto;
-    width: 30vw;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 
-    h2{
-        text-align: center;
-        margin-bottom: 30px;
+
+    min-height: 80vh;
+    display: flex;
+
+    section{
+        padding: 20px;
+        background-color: rgba(255,255,255,0.7);        
+        margin: auto;          
+        width: 50vw;
+
+        h2{
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        ul{
+            list-style: none;
+            font-size: 1.2em;
+            li {
+                margin-bottom:15px;
+            }    
+        }
+
+        input[type="checkbox"]{            
+            margin-right: 10px;
+        }
+
     }
-    ul{
-        list-style: none;
-        font-size: 1.5em;
+
+    .terminada{
+        text-decoration: line-through;
     }
-    li{
-        font-size: 0.7em;
-        margin-bottom: 1em;
-    }
-    input[type="checkbox"]{
-        margin-right: 10px;
-    }
-    .tachado{
-        text-decoration-line: line-through;
-    }
+
 }
