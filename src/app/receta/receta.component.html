@@ -1,19 +1,19 @@
 <div class="row">
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
-      <img src="{{r1.foto}}" alt="...">
+      <img src="{{receta.foto}}" alt="...">
       <div class="caption">
         <span id="gluten"><img *ngIf="receta.isGlutenFree"src='\assets\img\gluten_free_icon.png' alt="No libre de Gluten"/></span>
         <span id="gluten"><img *ngIf="!receta.isGlutenFree"src='\assets\img\gluten_icon.png' alt="Libre de Gluten"/></span>
-        <h3>{{ r1.nombre| uppercase }}</h3>
-        <p>{{r1.descripcion | slice:0:100}}...</p>
+        <h3>{{ receta.nombre| uppercase }}</h3>
+        <p>{{receta.descripcion | slice:0:100}}...</p>
 
         <p>
-          <span class="cocinero">{{r1.cocinero}}</span>
-          <span class="label label-primary" (click)="sumarLike()">Likes {{r1.numeroLikes}}</span>   
+          <span class="cocinero">{{receta.cocinero}}</span>
+          <span class="label label-primary" (click)="sumarLike()">Likes {{receta.numeroLikes}}</span>   
         </p>
         <section class="ingredientes">
-          <h4 (click)="showIngredientes()"><span class="badge">{{r1.ingredientes.length}}</span> Ingredientes <i class="fa fa-caret-square-o-{{posicion}}" aria-hidden="true"></i> </h4>
+          <h4 (click)="showIngredientes()"><span class="badge">{{receta.ingredientes.length}}</span> Ingredientes <i class="fa fa-caret-square-o-{{posicion}}" aria-hidden="true"></i> </h4>
           <ol *ngIf="show">
             <li *ngFor="let ing of receta.ingredientes">
               {{ing}}
