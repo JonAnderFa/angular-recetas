@@ -1,0 +1,15 @@
+<div class="container">
+  <form novalidate [formGroup]="formulario" (ngSubmit)="enviar($event)">
+
+    <p>{{formulario.value|json}}</p>
+    <p>{{formulario.status|json}}</p>
+    <input formControlName="nombre">
+    <p *ngIf="formulario.controls.nombre.invalid" class="text-danger">Error por blablabla....</p>
+    <input type="submit" class="btn"value="enviar" [disabled]="formulario.invalid">
+  </form>
+    <hr>
+    <h2>Doble Binding o Banana in a box</h2>
+    {{fruta}}
+    <br>
+    <input [(ngModel)]="fruta">
+</div>

@@ -29,6 +29,7 @@ import { FormularioComponent } from './recetario/formulario/formulario.component
 import { FormularioCocheComponent } from './concesionario/formulario-coche/formulario-coche.component';
 import { PlantillaComponent } from './plantilla/plantilla.component';
 import { TodosComponent } from './todos/todos.component';
+import { FormBasicoComponent } from './form-basico/form-basico.component';
 
 
 
@@ -50,7 +51,8 @@ import { TodosComponent } from './todos/todos.component';
     FormularioComponent,
     FormularioCocheComponent,
     PlantillaComponent,
-    TodosComponent
+    TodosComponent,
+    FormBasicoComponent
   ],
   imports: [
     HttpClientModule,
